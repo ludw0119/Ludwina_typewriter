@@ -35,14 +35,20 @@ function hide() {
 function loop() {
   for (let i = 0; i < text.length; i++) {
     /*alert("I am alert");*/
+(function(i){
+    setTimeout(function() {
+      let res = text.substring(0, counter + 1);
+      document.getElementById("typewriter").innerHTML = res;
+      counter++;
+      console.log(res);
+      //alert(i);
+    //console.log(i);
 
-    //setTimeout(function() {
-    let res = text.substr(0, counter + 1);
-    document.getElementById("typewriter").innerHTML = res;
-    counter++;
-    console.log(res);
-    //alert(i);
-    //}, 400);
+    if (i == text.length){
+      loop();
+    }
+  }, 400 * i);
+  })(i);
   }
 }
 
